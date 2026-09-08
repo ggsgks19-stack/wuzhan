@@ -93,7 +93,7 @@
     <input id="in1" placeholder="· 输入发货码 ·" autocomplete="off">
     <button onclick="check(1)">提 交</button>
     <div class="err" id="err1"></div>
-    <div class="hint">描述里的数字按顺序连——「99新」是在夸货，不是货，别带上</div>
+    <div class="hint">描述里的数字，按顺序连起来</div>
   </div>
 
   <!-- 第2关：货物异常清单 -->
@@ -184,7 +184,37 @@
       <div class="e1">✦ 彩蛋 · 守店人的卡</div>
       <div class="e2">守店人也有一张自己的卡，背面藏着同样的暗号。<br>把「雾栈来信」带给他——门就开了。<br>▶ 点击去对暗号</div>
     </div>
-    <div class="hint">雾栈 · 最后一位买家，已经出现了</div>
+    <div class="letter" style="margin-top:24px;">等等。<br><br>你翻回那张《最后的订单表》——<br>47位顾客，46行备注，<br><b>只有第 47 位那一栏，是空白的。</b><br><br>店员批注写着：<span style="color:#555;">「第 47 位还没来。他会来的，信封上写着呢。」</span><br><br>信封上写的是：<b style="color:#c82828;">「致最后一位买家。」</b><br><br>……收件人是你。那空白的一栏，填的应该是——<br><span style="color:#555;">网盘第2份档案《最后的订单表》，翻到最后一行。把那个数字告诉我。</span></div>
+    <input id="in5" placeholder="· 第 47 位顾客 ·" autocomplete="off">
+    <button onclick="check(5)">签 收</button>
+    <div class="err" id="err5"></div>
+    <div class="hint">网盘第2份档案《最后的订单表》· 看第47位顾客一栏</div>
+  </div>
+
+  <!-- 真结局：第47位买家 -->
+  <div class="stage" id="s6">
+    <div class="title">真 结 局</div>
+    <div class="sub">— 第 47 位买家 · 到店 —</div>
+    <div class="letter" id="letter6"></div>
+    <div class="doc">【收货凭证 · 重新打印】
+
+货物：一封没拆的信
+收货人：第 47 位买家（<b>就是你</b>）
+签收时刻：午夜十二点整
+凭证编号：000
+
+※ 凭证编号 000。
+※ 守店人的卡背面若印着 000，持有者即本店最后一任买家。
+※ 本凭证截图有效——这是你来过第7仓库的唯一证据。</div>
+    <div class="paywall" style="cursor:pointer;" onclick="window.open('https://pan.xunlei.com/s/VP0vrXG5ghVc0v-JplOAAGsZA1?pwd=cgw3','_blank')">
+      <div class="p1">隐 藏 档 案 · 第 9 份</div>
+      <div class="p2">《第47位买家》全文，只放在网盘最深处<br>连同八份档案的完整典藏包<br><br>打开「<b style="color:#e8e8e8;">迅雷网盘</b>」收藏<br><span style="color:#c82828;font-size:13px;letter-spacing:2px;">▶ 点击跳转网盘</span></div>
+    </div>
+    <div class="endcard" onclick="window.open('https://5e5e2bde3e564138a2ed7b806d3f0f50.app.workbuddy.link/card.html?c=04_shoudian','_blank')">
+      <div class="e1">✦ 专属 · 守店人卡</div>
+      <div class="e2">把这张卡背面的暗号对上——<br>从今天起，第7仓库的灯，为你一个人亮。<br>▶ 去对暗号</div>
+    </div>
+    <div class="hint">截图这一幕。能证明你是第47位买家的，只有这张图。</div>
   </div>
 
 </div>
@@ -200,7 +230,8 @@ const PASS = {
   1: ['6b2447c2ce771860a00fafd344820aad102ddcdcc503c02c1f768eb5d37dd883'],  // 第1关发货码：3242007
   2: ['dcfc099d43f386978350ffcb8ab6b3e7fc3d7f6904888e44341b383e9a167168'],  // 第2关：066
   3: ['b655703d7f95d15ee7fec0f5ec80bc20179e8b74f08c2f4c0af59f5b83c75976'],  // 第3关：晚钟
-  4: ['f84b272f8635ce08446a704794cd7b9aa5226a26d8afd1290ab22f4513d039ab']   // 第4关：雾栈
+  4: ['f84b272f8635ce08446a704794cd7b9aa5226a26d8afd1290ab22f4513d039ab'],  // 第4关：雾栈
+  5: ['31489056e0916d59fe3add79e63f095af3ffb81604691f21cad442a85c7be617']   // 真结局：47
 };
 const T = {
   0: '你收到一封信。<br><br>信封上没有邮票，没有寄件地址，<br>只有一行字：<br><br><b>「致最后一位买家。」</b><br><br>落款是——<br><br><b style="color:#c82828;">陌屿集市</b><br><br>信的末尾写着：<br><span style="color:#555;">「想拆第二页，回复口令。」</span>',
@@ -237,16 +268,17 @@ async function check(n){
   document.getElementById('s'+n).classList.remove('on');
   const nxt = document.getElementById('s'+(n+1));
   nxt.classList.add('on');
-  type(nxt.querySelector('.letter'), T[n]);
+  type(nxt.querySelector('.letter'), n === 5 ? T6 : T[n]);
   window.scrollTo(0,0);
 }
 document.addEventListener('keydown', e=>{
   if (e.key === 'Enter'){
-    for (let n=0; n<5; n++){
+    for (let n=0; n<6; n++){
       if (document.getElementById('s'+n).classList.contains('on')) check(n);
     }
   }
 });
+const T6 = '<b>47。</b><br><br>你写下这个数字的瞬间，<br>仓库所有的灯，从最里面那盏开始，一盏一盏亮到门口。<br><br>桌上那封写着「致最后一位买家」的信，<br>封口的火漆，<b>自己裂开了</b>。<br><br>里面只有一句话：<br><br><b style="color:#c82828;">「等你四十七个人了。欢迎回家。」</b><br><br>—— 守店人';
 window.addEventListener('load', ()=>{
   type(document.getElementById('letter0'), T[0]);
 });
