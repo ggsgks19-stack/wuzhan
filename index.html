@@ -48,6 +48,27 @@
   .paywall .p1 { font-size:18px; color:#c82828; letter-spacing:2px; margin-bottom:14px; }
   .paywall .p2 { font-size:14px; color:#999; line-height:2; }
   .sig { text-align:right; color:#666; font-size:13px; margin-top:18px; }
+  #adgate {
+    position:fixed; inset:0; z-index:99; background:rgba(0,0,0,.97);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:24px; text-align:center;
+  }
+  #adgate .ad-title { color:#c82828; font-size:22px; letter-spacing:6px; margin-bottom:6px; }
+  #adgate .ad-sub { color:#777; font-size:12px; letter-spacing:2px; margin-bottom:22px; line-height:1.9; }
+  .nz-grid { display:flex; flex-direction:column; gap:12px; width:min(86vw,360px); }
+  .nz-item {
+    background:#0d0d0d; border:1px solid #333; border-radius:10px; padding:14px 16px;
+    text-align:left; cursor:pointer; transition:border-color .2s;
+  }
+  .nz-item:hover { border-color:#c82828; }
+  .nz-item b { display:block; color:#e8e8e8; font-size:15px; letter-spacing:2px; margin-bottom:5px; }
+  .nz-item b::before { content:"▶ "; color:#c82828; }
+  .nz-item span { color:#888; font-size:12px; line-height:1.8; }
+  #nz-start {
+    margin-top:20px; width:min(86vw,360px); background:#c82828; color:#fff; border:none;
+    padding:14px; font-size:15px; letter-spacing:3px; cursor:pointer;
+  }
+  #adgate .ad-note { color:#555; font-size:11px; margin-top:14px; letter-spacing:1px; }
   .dossier {
     display:inline-block; border:1px solid #c82828; color:#c82828;
     font-size:12px; letter-spacing:2px; padding:5px 14px; margin-bottom:14px;
@@ -63,35 +84,25 @@
   }
   .endcard .e1 { color:#7de8d8; font-size:16px; letter-spacing:2px; margin-bottom:10px; }
   .endcard .e2 { color:#8a8; font-size:12px; line-height:2; }
-  /* ===== 每日广告门 ===== */
-  #adgate {
-    position:fixed; inset:0; z-index:99; background:rgba(0,0,0,.96);
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    padding:24px; text-align:center;
-  }
-  #adgate .ad-title { color:#c82828; font-size:19px; letter-spacing:5px; margin-bottom:8px; }
-  #adgate .ad-sub { color:#777; font-size:12px; letter-spacing:2px; margin-bottom:18px; line-height:1.9; }
-  #adgate video { width:min(86vw,340px); border:1px solid #333; border-radius:8px; background:#000; }
-  #adgate .ad-note { color:#555; font-size:11px; margin-top:10px; letter-spacing:1px; }
-  #ad-unlock {
-    margin-top:16px; width:min(86vw,340px); background:#333; color:#888; border:none;
-    padding:13px; font-size:14px; letter-spacing:3px; cursor:not-allowed; transition:all .3s;
-  }
-  #ad-unlock.ready { background:#c82828; color:#fff; cursor:pointer; }
-  #ad-buypass {
-    margin-top:14px; color:#777; font-size:12px; letter-spacing:1px;
-  }
-  #ad-buypass a { color:#c8a86a; text-decoration:underline; cursor:pointer; }
 </style>
 </head>
 <body>
 <div id="adgate">
-  <div class="ad-title">今 日 广 告 时 间</div>
-  <div class="ad-sub">看完这条 30 秒，今日全关卡免费畅玩<br>（每天一次 · 次日再来）</div>
-  <video id="ad-video" src="ad.mp4" playsinline></video>
-  <div class="ad-note">▲ 广告内容即本游戏世界观 · 声音更入味</div>
-  <button id="ad-unlock" disabled>广告播放中… <span id="ad-count">15</span>s</button>
-  <div id="ad-buypass">不想等？<a onclick="window.open('https://pan.xunlei.com/s/VP0vrXG5ghVc0v-JplOAAGsZA1?pwd=cgw3','_blank')">9.9 买断完整案卷 · 永久免广告</a></div>
+  <div class="ad-title">玩 家 需 知</div>
+  <div class="ad-sub">开始之前，请务必阅读<br>本页内容由陌屿集市免费提供 · 完整版 9.9</div>
+  <div class="nz-grid">
+    <div class="nz-item" onclick="window.open('https://v.douyin.com/djyLdB52Xs0/','_blank')">
+      <b>抖音入口</b><span>搜索「雾栈来信」<br>口令藏在视频里 · 关注不迷路</span>
+    </div>
+    <div class="nz-item" onclick="window.open('https://pan.xunlei.com/s/VP0vrXG5ghVc0v-JplOAAGsZA1?pwd=cgw3','_blank')">
+      <b>网盘入口</b><span>迅雷网盘 · 口令「雾栈来信」<br>八份档案 · 完整案卷</span>
+    </div>
+    <div class="nz-item" onclick="window.open('https://pan.xunlei.com/s/VP0vrXG5ghVc0v-JplOAAGsZA1?pwd=cgw3','_blank')">
+      <b>完整版 9.9</b><span>全 6 关 · 真结局 · 离线可玩<br>闲鱼拍下自动发货</span>
+    </div>
+  </div>
+  <button id="nz-start" onclick="document.getElementById('adgate').style.display='none'">已阅读 · 开始游戏（免费试玩）</button>
+  <div class="ad-note">免费试玩：序章 + 第一关 · 完整版含全部 6 关与真结局</div>
 </div>
 <div class="wrap">
 
@@ -130,6 +141,18 @@
     <button onclick="check(1)">提 交</button>
     <div class="err" id="err1"></div>
     <div class="hint">描述里的数字，按顺序连起来</div>
+  </div>
+
+  <!-- 付费墙（免费版终点） -->
+  <div class="stage" id="s_pay">
+    <div class="title">试 玩 结 束</div>
+    <div class="sub">— 完整版 · 6 关 · 真结局 —</div>
+    <div class="letter">你回复了暗号，*峰那边沉默了很久。<br><br>系统弹出一条新消息：<br><br><b style="color:#c82828;">「明天，第7仓库，有一批货要签收。<br>收货人栏，签你的名字。」</b><br><br><span class="sig">—— 陌屿集市</span></div>
+    <div class="paywall" style="cursor:pointer;" onclick="window.open('https://pan.xunlei.com/s/VP0vrXG5ghVc0v-JplOAAGsZA1?pwd=cgw3','_blank')">
+      <div class="p1">完 整 版 · 9.9</div>
+      <div class="p2">全 6 关 · 真结局「第 47 位买家」 · 离线双击即玩<br>附九份完整档案（含隐藏档案09）<br><br>闲鱼拍下自动发货 · 或进上方网盘自取<br><span style="color:#c82828;font-size:13px;letter-spacing:2px;">▶ 点击进网盘</span></div>
+    </div>
+    <div class="hint">雾栈 · 最后一位买家，还没有出现</div>
   </div>
 
   <!-- 第2关：货物异常清单 -->
@@ -273,6 +296,7 @@ async function sha(s){
   const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s.trim()));
   return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
 }
+const FULL = false;   // 离线完整版此值改为 true
 const PASS = {
   0: ['ed79fccb8743622d461fd80a7f1870085b53e8830dc92698f6f2e3cf0e33ac00'],  // 序章口令：雾栈来信
   1: ['6b2447c2ce771860a00fafd344820aad102ddcdcc503c02c1f768eb5d37dd883'],  // 第1关发货码：3242007
@@ -314,7 +338,9 @@ async function check(n){
     return;
   }
   document.getElementById('s'+n).classList.remove('on');
-  const nxt = document.getElementById('s'+(n+1));
+  let nid = n+1;
+  if (!FULL && nid === 2) nid = '_pay';     // 免费版到第1关为止
+  const nxt = document.getElementById('s'+nid);
   nxt.classList.add('on');
   type(nxt.querySelector('.letter'), n === 5 ? T6 : T[n]);
   window.scrollTo(0,0);
@@ -329,28 +355,6 @@ document.addEventListener('keydown', e=>{
 const T6 = '<b>47。</b><br><br>你写下这个数字的瞬间，<br>仓库所有的灯，从最里面那盏开始，一盏一盏亮到门口。<br><br>桌上那封写着「致最后一位买家」的信，<br>封口的火漆，<b>自己裂开了</b>。<br><br>里面只有一句话：<br><br><b style="color:#c82828;">「等你四十七个人了。欢迎回家。」</b><br><br>—— 守店人';
 window.addEventListener('load', ()=>{
   type(document.getElementById('letter0'), T[0]);
-  // ---- 每日广告门 ----
-  const today = new Date().toISOString().slice(0,10);
-  const gate = document.getElementById('adgate');
-  if (localStorage.getItem('wz_ad_date') === today) { gate.style.display = 'none'; return; }
-  const vid = document.getElementById('ad-video');
-  const btn = document.getElementById('ad-unlock');
-  const cnt = document.getElementById('ad-count');
-  let left = 15;
-  vid.play().catch(()=>{});
-  const timer = setInterval(()=>{
-    left--;
-    if (left > 0) { cnt.textContent = left; return; }
-    clearInterval(timer);
-    btn.classList.add('ready');
-    btn.disabled = false;
-    btn.textContent = '看完广告 · 解锁今日畅玩 ▶';
-  }, 1000);
-  btn.addEventListener('click', ()=>{
-    if (!btn.classList.contains('ready')) return;
-    localStorage.setItem('wz_ad_date', today);
-    gate.style.display = 'none';
-  });
 });
 </script>
 </body>
