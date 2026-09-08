@@ -48,15 +48,51 @@
   .paywall .p1 { font-size:18px; color:#c82828; letter-spacing:2px; margin-bottom:14px; }
   .paywall .p2 { font-size:14px; color:#999; line-height:2; }
   .sig { text-align:right; color:#666; font-size:13px; margin-top:18px; }
+  .dossier {
+    display:inline-block; border:1px solid #c82828; color:#c82828;
+    font-size:12px; letter-spacing:2px; padding:5px 14px; margin-bottom:14px;
+  }
+  .redact { background:#2a2a2a; color:#2a2a2a; border-radius:2px; padding:0 4px; }
+  .arlink {
+    display:block; text-align:center; margin-top:10px; color:#c8a86a; font-size:12px;
+    letter-spacing:2px; text-decoration:underline; cursor:pointer;
+  }
   .endcard {
     border:1px solid #1d6e63; background:rgba(20,60,55,.15);
     padding:22px 18px; margin-top:24px; text-align:center; cursor:pointer;
   }
   .endcard .e1 { color:#7de8d8; font-size:16px; letter-spacing:2px; margin-bottom:10px; }
   .endcard .e2 { color:#8a8; font-size:12px; line-height:2; }
+  /* ===== 每日广告门 ===== */
+  #adgate {
+    position:fixed; inset:0; z-index:99; background:rgba(0,0,0,.96);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:24px; text-align:center;
+  }
+  #adgate .ad-title { color:#c82828; font-size:19px; letter-spacing:5px; margin-bottom:8px; }
+  #adgate .ad-sub { color:#777; font-size:12px; letter-spacing:2px; margin-bottom:18px; line-height:1.9; }
+  #adgate video { width:min(86vw,340px); border:1px solid #333; border-radius:8px; background:#000; }
+  #adgate .ad-note { color:#555; font-size:11px; margin-top:10px; letter-spacing:1px; }
+  #ad-unlock {
+    margin-top:16px; width:min(86vw,340px); background:#333; color:#888; border:none;
+    padding:13px; font-size:14px; letter-spacing:3px; cursor:not-allowed; transition:all .3s;
+  }
+  #ad-unlock.ready { background:#c82828; color:#fff; cursor:pointer; }
+  #ad-buypass {
+    margin-top:14px; color:#777; font-size:12px; letter-spacing:1px;
+  }
+  #ad-buypass a { color:#c8a86a; text-decoration:underline; cursor:pointer; }
 </style>
 </head>
 <body>
+<div id="adgate">
+  <div class="ad-title">今 日 广 告 时 间</div>
+  <div class="ad-sub">看完这条 30 秒，今日全关卡免费畅玩<br>（每天一次 · 次日再来）</div>
+  <video id="ad-video" src="ad.mp4" playsinline></video>
+  <div class="ad-note">▲ 广告内容即本游戏世界观 · 声音更入味</div>
+  <button id="ad-unlock" disabled>广告播放中… <span id="ad-count">15</span>s</button>
+  <div id="ad-buypass">不想等？<a onclick="window.open('https://pan.xunlei.com/s/VP0vrXG5ghVc0v-JplOAAGsZA1?pwd=cgw3','_blank')">9.9 买断完整案卷 · 永久免广告</a></div>
+</div>
 <div class="wrap">
 
   <!-- 序章：信 -->
@@ -99,32 +135,40 @@
   <!-- 第2关：货物异常清单 -->
   <div class="stage" id="s2">
     <div class="title">第 二 关</div>
+    <div class="paywall" style="cursor:pointer;" onclick="window.open('https://pan.xunlei.com/s/VP0vrXG5ghVc0v-JplOAAGsZA1?pwd=cgw3','_blank')">
+      <div class="p1">本 关 起 · 需 持 完 整 案 卷</div>
+      <div class="p2">八份档案是你唯一的证物。<br>没有案卷，你连货都看不清。<br><br>打开「<b style="color:#e8e8e8;">迅雷网盘</b>」领取案卷<br><span style="color:#c82828;font-size:13px;letter-spacing:2px;">▶ 点击领取 · 口令「雾栈来信」</span></div>
+    </div>
     <div class="sub">— 第7仓库 · 货物异常清单 —</div>
+    <div style="text-align:center"><span class="dossier">调 取 档 案 01 · 货 物 异 常 清 单</span></div>
     <div class="letter" id="letter2"></div>
     <div class="doc">【第7仓库 · 清单节选】
 
 编号 007 怀表（黄铜） …… 正常
-编号 <b>013</b> 时光机配件箱 …… <b>异常</b>
+编号 <span class="redact">████</span> 时光机配件箱 …… <b>异常</b>
 编号 022 旧信封（无邮票） …… 正常
-编号 <b>009</b> 火漆印章（朱砂） …… <b>异常</b>
+编号 <span class="redact">████</span> 火漆印章（朱砂） …… <b>异常</b>
 编号 031 空木盒（杉木） …… 正常
-编号 <b>044</b> 修理工具组 …… <b>异常</b>
+编号 <span class="redact">████</span> 修理工具组 …… <b>异常</b>
 编号 058 台灯（绿罩） …… 正常
 
 仓管批注：
 异常的意思是——封条完好，内件比入库时『新』。
-想知道完整清单？网盘第一份档案。
-先答这道：三件异常货的编号，加起来。</div>
+这份是节选。异常货的入库编号，被墨盖住了。
+<span style="color:#c82828;">完整清单在网盘档案01，去调。</span>
+然后回答：三件异常货的编号，加起来。</div>
     <input id="in2" placeholder="· 三个数字 ·" autocomplete="off">
     <button onclick="check(2)">提 交</button>
     <div class="err" id="err2"></div>
-    <div class="hint">异常的货，就三件</div>
+    <div class="hint">调取网盘档案01《货物异常清单》· 异常的货就三件</div>
+    <div class="arlink" onclick="window.open('archives.html','_blank')">▶ 今日已看广告？直接打开档案室</div>
   </div>
 
   <!-- 第3关：怀表维修单 -->
   <div class="stage" id="s3">
     <div class="title">第 三 关</div>
     <div class="sub">— 怀表维修单 · 存根 —</div>
+    <div style="text-align:center"><span class="dossier">调 取 档 案 04 / 05</span></div>
     <div class="letter" id="letter3"></div>
     <div class="doc">【维修单存根 · 节选】
 
@@ -144,13 +188,15 @@
     <input id="in3" placeholder="· 复核口令 ·" autocomplete="off">
     <button onclick="check(3)">提 交</button>
     <div class="err" id="err3"></div>
-    <div class="hint">答案在网盘《内部转交函》末尾</div>
+    <div class="hint">调取网盘档案05《内部转交函》· 口令在末尾</div>
+    <div class="arlink" onclick="window.open('archives.html','_blank')">▶ 今日已看广告？直接打开档案室</div>
   </div>
 
   <!-- 第4关：AI遗言 -->
   <div class="stage" id="s4">
     <div class="title">第 四 关</div>
     <div class="sub">— 林深 · AI遗言（残片） —</div>
+    <div style="text-align:center"><span class="dossier">调 取 档 案 06 · 林 深 的 AI 遗 言</span></div>
     <div class="letter" id="letter4"></div>
     <div class="doc">【存档片段 · 有缺损】
 
@@ -168,7 +214,8 @@
     <input id="in4" placeholder="· 雾散了，____还在 ·" autocomplete="off">
     <button onclick="check(4)">提 交</button>
     <div class="err" id="err4"></div>
-    <div class="hint">网盘第6份档案《林深的AI遗言》，最后一句</div>
+    <div class="hint">调取网盘档案06《林深的AI遗言》· 最后一句</div>
+    <div class="arlink" onclick="window.open('archives.html','_blank')">▶ 今日已看广告？直接打开档案室</div>
   </div>
 
   <!-- 终章 -->
@@ -184,11 +231,12 @@
       <div class="e1">✦ 彩蛋 · 守店人的卡</div>
       <div class="e2">守店人也有一张自己的卡，背面藏着同样的暗号。<br>把「雾栈来信」带给他——门就开了。<br>▶ 点击去对暗号</div>
     </div>
-    <div class="letter" style="margin-top:24px;">等等。<br><br>你翻回那张《最后的订单表》——<br>47位顾客，46行备注，<br><b>只有第 47 位那一栏，是空白的。</b><br><br>店员批注写着：<span style="color:#555;">「第 47 位还没来。他会来的，信封上写着呢。」</span><br><br>信封上写的是：<b style="color:#c82828;">「致最后一位买家。」</b><br><br>……收件人是你。那空白的一栏，填的应该是——<br><span style="color:#555;">网盘第2份档案《最后的订单表》，翻到最后一行。把那个数字告诉我。</span></div>
+    <div class="letter" style="margin-top:24px;">等等。<br><br>你翻回那张《最后的订单表》——<br>47位顾客，46行备注，<br><b>只有第 47 位那一栏，是空白的。</b><br><br>店员批注写着：<span style="color:#555;">「第 47 位还没来。他会来的，信封上写着呢。」</span><br><br>信封上写的是：<b style="color:#c82828;">「致最后一位买家。」</b><br><br>……收件人是你。那空白的一栏，填的应该是——<br><span style="color:#555;">调取网盘档案02《最后的订单表》——订单表上，顾客记录一共几行？把那个数字告诉我。</span></div>
     <input id="in5" placeholder="· 第 47 位顾客 ·" autocomplete="off">
     <button onclick="check(5)">签 收</button>
     <div class="err" id="err5"></div>
-    <div class="hint">网盘第2份档案《最后的订单表》· 看第47位顾客一栏</div>
+    <div class="hint">调取网盘档案02《最后的订单表》· 数一数顾客记录</div>
+    <div class="arlink" onclick="window.open('archives.html','_blank')">▶ 今日已看广告？直接打开档案室</div>
   </div>
 
   <!-- 真结局：第47位买家 -->
@@ -281,6 +329,28 @@ document.addEventListener('keydown', e=>{
 const T6 = '<b>47。</b><br><br>你写下这个数字的瞬间，<br>仓库所有的灯，从最里面那盏开始，一盏一盏亮到门口。<br><br>桌上那封写着「致最后一位买家」的信，<br>封口的火漆，<b>自己裂开了</b>。<br><br>里面只有一句话：<br><br><b style="color:#c82828;">「等你四十七个人了。欢迎回家。」</b><br><br>—— 守店人';
 window.addEventListener('load', ()=>{
   type(document.getElementById('letter0'), T[0]);
+  // ---- 每日广告门 ----
+  const today = new Date().toISOString().slice(0,10);
+  const gate = document.getElementById('adgate');
+  if (localStorage.getItem('wz_ad_date') === today) { gate.style.display = 'none'; return; }
+  const vid = document.getElementById('ad-video');
+  const btn = document.getElementById('ad-unlock');
+  const cnt = document.getElementById('ad-count');
+  let left = 15;
+  vid.play().catch(()=>{});
+  const timer = setInterval(()=>{
+    left--;
+    if (left > 0) { cnt.textContent = left; return; }
+    clearInterval(timer);
+    btn.classList.add('ready');
+    btn.disabled = false;
+    btn.textContent = '看完广告 · 解锁今日畅玩 ▶';
+  }, 1000);
+  btn.addEventListener('click', ()=>{
+    if (!btn.classList.contains('ready')) return;
+    localStorage.setItem('wz_ad_date', today);
+    gate.style.display = 'none';
+  });
 });
 </script>
 </body>
