@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-page-node-id="Pj1vd8nUBe6V0wYKJHb1Fl">
-<head data-page-node-id="jV1Ouoy7kmfHfOyFoWO72I">
-<meta charset="UTF-8" data-page-node-id="ri7ZOE9iLluq16dP3E79US">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" data-page-node-id="5AjbqmPMZnSHIeAHbS2BWS">
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>雾栈来信 · 收件人是你</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -43,71 +43,148 @@
   }
   .doc b { color:#fff; }
   .paywall {
-    border:1px solid #c82828; padding:26px 20px; text-align:center; margin-top:26px;
+    border:1px solid #c82828; padding:26px 20px; text-align:center; margin-top:26px; cursor:pointer;
   }
   .paywall .p1 { font-size:18px; color:#c82828; letter-spacing:2px; margin-bottom:14px; }
   .paywall .p2 { font-size:14px; color:#999; line-height:2; }
   .sig { text-align:right; color:#666; font-size:13px; margin-top:18px; }
+  .endcard {
+    border:1px solid #1d6e63; background:rgba(20,60,55,.15);
+    padding:22px 18px; margin-top:24px; text-align:center; cursor:pointer;
+  }
+  .endcard .e1 { color:#7de8d8; font-size:16px; letter-spacing:2px; margin-bottom:10px; }
+  .endcard .e2 { color:#8a8; font-size:12px; line-height:2; }
 </style>
 </head>
-<body data-page-node-id="T5baMlAuRTl0VhWtTvccwQ">
-<div class="wrap" data-page-node-id="j04lkXa7IqjBi6IA8m9C8T">
+<body>
+<div class="wrap">
 
   <!-- 序章：信 -->
-  <div class="stage on" id="s0" data-page-node-id="h2lg7RwM7UUfaGMwT3Fwjs">
-    <div class="title" data-page-node-id="g93WUC6Mrqm9QfAxaJPbAZ">雾 栈 来 信</div>
-    <div class="sub" data-page-node-id="B2m5QUCdndUeyZBYNaeGeU">— 陌屿集市 · 存档 —</div>
-    <div class="letter cursor" id="letter0" data-page-node-id="FWrh4CEztpjef0iHqOsW7y"></div>
-    <input id="in0" placeholder="· 回复口令 ·" autocomplete="off" data-page-node-id="UISWUvRZiAmHNoNwd4k6h6">
-    <button onclick="check(0)" data-page-node-id="qaiPSHVZi4jMdb6n0QlOO7">回 复</button>
-    <div class="err" id="err0" data-page-node-id="xvjgpRtI6cCJuUCgjPbjBZ"></div>
-    <div class="hint" data-page-node-id="q2DqDzjV42VvKdn8CQ79KE">口令藏在雾栈的视频里</div>
+  <div class="stage on" id="s0">
+    <div class="title">雾 栈 来 信</div>
+    <div class="sub">— 陌屿集市 · 存档 —</div>
+    <div class="letter cursor" id="letter0"></div>
+    <input id="in0" placeholder="· 回复口令 ·" autocomplete="off">
+    <button onclick="check(0)">回 复</button>
+    <div class="err" id="err0"></div>
+    <div class="hint">口令藏在雾栈的视频里</div>
   </div>
 
-  <!-- 第1关：神秘卖家的商品页 -->
-  <div class="stage" id="s1" data-page-node-id="TlzGD1HOjZAE1AwaZpjm3i">
-    <div class="title" data-page-node-id="YTPp3GBhiLWT4wMjwnSJkd">第 一 关</div>
-    <div class="sub" data-page-node-id="ZLiGURAelOpFzcmjqk3NNq">— 神秘卖家的商品页 —</div>
-    <div class="doc" data-page-node-id="DBlrXTxjzuDskVV75GgDKo">【陌屿集市 · 商品页截图存档】
+  <!-- 第1关：商品页 -->
+  <div class="stage" id="s1">
+    <div class="title">第 一 关</div>
+    <div class="sub">— 神秘卖家的商品页 —</div>
+    <div class="letter" id="letter1"></div>
+    <div class="doc">【陌屿集市 · 商品页截图存档】
 
-卖家：<b data-page-node-id="7HFE2w50JQNTSAQPDcS2LC">*峰</b>（新注册，无评价）
-商品：出 · 全新未拆封 <b data-page-node-id="wl9KkxnRl8PSY3hWxr4L8o">时光机</b>（仅此一台）
+卖家：<b>*峰</b>（新注册，无评价）
+商品：出 · 全新未拆封 <b>时光机</b>（仅此一台）
 
 描述：
 出一台时光机，99新，仅拆封未使用。
-功能：<b data-page-node-id="itoXTfkCcnsaviqQOPqS54">回溯3天</b>，误差<b data-page-node-id="5enmxzfWXjg0gFDU4ySqov">24小时</b>以内，不支持快进。
-支持以旧换新，<b data-page-node-id="0bGfyumBtBRoPm8gXBToJE">加价200</b>即可。
+功能：<b>回溯3天</b>，误差<b>24小时</b>以内，不支持快进。
+支持以旧换新，<b>加价200</b>即可。
 非诚勿扰，回复暗号"我想回去"。
-只接受当面交易，地点：<b data-page-node-id="7bxW2es1JSBE2OF9ucgpZn">第7仓库</b>，晚上去别带手机。
+只接受当面交易，地点：<b>第7仓库</b>，晚上去别带手机。
 
 【卖家留言】
 好东西不等人。想拿货，先证明你看懂了这条描述。
-网盘提取码？呵，数字都给你了，自己连。
-
-—— 发货码就在上面，连不出来说明这货跟你没缘分。</div>
-    <input id="in1" placeholder="· 输入发货码 ·" autocomplete="off" data-page-node-id="ze7nEvGlxb7Y1UXAaBxRs6">
-    <button onclick="check(1)" data-page-node-id="u106VSLv6EH152CtFSKMJm">提 交</button>
-    <div class="err" id="err1" data-page-node-id="9LqDOiJuO5lz7ED8dxc15s"></div>
-    <div class="hint" data-page-node-id="Yecywl5E5AXsvvAaA29xzC">描述里的数字，按顺序连起来</div>
+网盘提取码？呵，数字都给你了，自己连。</div>
+    <input id="in1" placeholder="· 输入发货码 ·" autocomplete="off">
+    <button onclick="check(1)">提 交</button>
+    <div class="err" id="err1"></div>
+    <div class="hint">描述里的数字，按顺序连起来</div>
   </div>
 
-  <!-- 付费墙 -->
-  <div class="stage" id="s2" data-page-node-id="GHXC2bPCWKhcTWksn7gtPC">
-    <div class="title" data-page-node-id="euVoNItOYl6DvMGSymBHC6">通 关</div>
-    <div class="sub" data-page-node-id="qMdCRNjp0xAtc3dvhG8qOJ">— 试玩版到此为止 —</div>
-    <div class="letter" data-page-node-id="oYBNvwNQ5lFghbEYjuKgGv">你回复了暗号，*峰那边沉默了很久。<br data-page-node-id="ZZsvXLLl4Mc7zuMSSmKSlv"><br data-page-node-id="3BXU7mGUliQI2aXQak7fbi">
-然后系统弹出一条新消息：<br data-page-node-id="EtXZNg0CtADDaQtaMT1pKo"><br data-page-node-id="zxFpAoCGnDzWmfwXh33A9G">
-<b data-page-node-id="atDbvPcPT6aol7ws2rGWTD">「明天，第7仓库，有一批货要签收。<br data-page-node-id="EbwH1HyUlSQpnZDqAcvfFC">收货人栏，签你的名字。」</b><br data-page-node-id="CSkM5sPHOW1ZikoKn2tGjw"><br data-page-node-id="CTRFzASV8EKhWUFe0Dw9O4">
-<span class="sig" data-page-node-id="NDSnxDoRRUslel3GhE74xR">—— 陌屿集市</span></div>
-    <div class="paywall" style="cursor:pointer;" onclick="window.open('https://pan.xunlei.com/s/VP0vrXG5ghVc0v-JplOAAGsZA1?pwd=cgw3','_blank')" data-page-node-id="r27kBn54I2AAHKHTEtYMzM">
-      <div class="p1" data-page-node-id="WtM7pBGKVj6GPjUIk30Gsq">第 2 关 起 · 完 整 版</div>
-      <div class="p2" data-page-node-id="M2gD4BqCGR6tloJV7lbMWX">货物异常清单 · 最后的订单表 · 周某的笔录<br data-page-node-id="sCuDeNc4CnuibbFoWABGgE">怀表维修单 · 内部转交函 · 林深的AI遗言<br data-page-node-id="Vpne4FoXqEEka7g2UXneeb"><br data-page-node-id="f0tyf8UhfbWq6mnT1MI610">
-      全 8 份档案 · 5 道谜题 · 1 个结局<br data-page-node-id="rBIJzp8Iwo5iQ7eOWXLUYV"><br data-page-node-id="hANxF8TseWMWnOSUhGBkyC">
-      完整版 <b style="color:#c82828;font-size:18px;" data-page-node-id="bTwIWxpzkpcJezSHixxzyO">9.9</b><br data-page-node-id="Tt5IwDn96b3PlMNj6tRUYK"><br data-page-node-id="G9pWAbqDN8M1yXjtqAoKYQ">
-      打开「<b style="color:#e8e8e8;" data-page-node-id="ws3mJVOVnFJyMeQyIAr4PH">迅雷网盘</b>」<br data-page-node-id="4vFlopGNNHi59I6DRD7lKl">输入口令「<b style="color:#e8e8e8;" data-page-node-id="EhmEr3EhO7T1qbjruLbTNu">雾栈来信</b>」<br data-page-node-id="U9eEtBJs2DJEfDW0fJTlvF">
-      <span style="color:#c82828;font-size:13px;letter-spacing:2px;" data-page-node-id="FqwQjtNO50PWJ5sFToxWp3">▶ 点击这块红框，直接跳转网盘开始游戏</span></div>
+  <!-- 第2关：货物异常清单 -->
+  <div class="stage" id="s2">
+    <div class="title">第 二 关</div>
+    <div class="sub">— 第7仓库 · 货物异常清单 —</div>
+    <div class="letter" id="letter2"></div>
+    <div class="doc">【第7仓库 · 清单节选】
+
+编号 007 怀表（黄铜） …… 正常
+编号 <b>013</b> 时光机配件箱 …… <b>异常</b>
+编号 022 旧信封（无邮票） …… 正常
+编号 <b>009</b> 火漆印章（朱砂） …… <b>异常</b>
+编号 031 空木盒（杉木） …… 正常
+编号 <b>044</b> 修理工具组 …… <b>异常</b>
+编号 058 台灯（绿罩） …… 正常
+
+仓管批注：
+异常的意思是——封条完好，内件比入库时『新』。
+想知道完整清单？网盘第一份档案。
+先答这道：三件异常货的编号，加起来。</div>
+    <input id="in2" placeholder="· 三个数字 ·" autocomplete="off">
+    <button onclick="check(2)">提 交</button>
+    <div class="err" id="err2"></div>
+    <div class="hint">异常的货，就三件</div>
+  </div>
+
+  <!-- 第3关：怀表维修单 -->
+  <div class="stage" id="s3">
+    <div class="title">第 三 关</div>
+    <div class="sub">— 怀表维修单 · 存根 —</div>
+    <div class="letter" id="letter3"></div>
+    <div class="doc">【维修单存根 · 节选】
+
+物主：（无名）
+型号：黄铜猎壳怀表
+故障：指针停摆
+停摆时刻：<b>11:59</b>
+
+维修意见：机芯无损坏。
+表在等一个时刻，不建议修。
+取件方式：午夜，第7仓库，自取。
+
+【仓管补记】
+钟响之前来的，都算回头客。
+对暗号用的复核口令，写在网盘第5份档案
+《内部转交函》的末尾。去找。</div>
+    <input id="in3" placeholder="· 复核口令 ·" autocomplete="off">
+    <button onclick="check(3)">提 交</button>
+    <div class="err" id="err3"></div>
+    <div class="hint">答案在网盘《内部转交函》末尾</div>
+  </div>
+
+  <!-- 第4关：AI遗言 -->
+  <div class="stage" id="s4">
+    <div class="title">第 四 关</div>
+    <div class="sub">— 林深 · AI遗言（残片） —</div>
+    <div class="letter" id="letter4"></div>
+    <div class="doc">【存档片段 · 有缺损】
+
+……如果你读到这段字，说明雾散了一点。
+
+我造了那台机器，不是为了回去。
+是为了让没能说出口的话，有个地方排队。
+
+回溯三天，误差24小时——
+不是技术的极限，是遗憾的长度。
+
+※ 最后一句，我只说了一遍。
+这一遍，我收进网盘第6份档案里了。
+它很短。你早就知道那两个字。</div>
+    <input id="in4" placeholder="· 雾散了，____还在 ·" autocomplete="off">
+    <button onclick="check(4)">提 交</button>
+    <div class="err" id="err4"></div>
+    <div class="hint">网盘第6份档案《林深的AI遗言》，最后一句</div>
+  </div>
+
+  <!-- 终章 -->
+  <div class="stage" id="s5">
+    <div class="title">终 章</div>
+    <div class="sub">— 致最后一位买家 · 第二封信 —</div>
+    <div class="letter">你终于翻到这里。<br><br>其实根本没有什么时光机。<br>第7仓库里堆的，全是没送出去的信、<br>没拆的礼物、没说出口的那句话。<br><br>所谓「回溯三天」——<br><b>就是你现在合上手机，去做那件事。</b><br><br>信我替你收着。货，你签收了。<br><br><span class="sig">—— 陌屿集市 · 守店人</span></div>
+    <div class="paywall" style="cursor:pointer;" onclick="window.open('https://pan.xunlei.com/s/VP0vrXG5ghVc0v-JplOAAGsZA1?pwd=cgw3','_blank')">
+      <div class="p1">八 份 档 案 · 完 整 典 藏</div>
+      <div class="p2">货物异常清单 · 最后的订单表 · 周某的笔录<br>怀表维修单 · 内部转交函 · 林深的AI遗言<br>收货凭证 · 结局信<br><br>打开「<b style="color:#e8e8e8;">迅雷网盘</b>」收藏完整档案<br><span style="color:#c82828;font-size:13px;letter-spacing:2px;">▶ 点击跳转网盘</span></div>
     </div>
-    <div class="hint" data-page-node-id="iezVWMa1bJwHW5iiPtTgGL">雾栈 · 最后一位买家，还没有出现</div>
+    <div class="endcard" onclick="window.open('https://5e5e2bde3e564138a2ed7b806d3f0f50.app.workbuddy.link/card.html?c=04_shoudian','_blank')">
+      <div class="e1">✦ 彩蛋 · 守店人的卡</div>
+      <div class="e2">守店人也有一张自己的卡，背面藏着同样的暗号。<br>把「雾栈来信」带给他——门就开了。<br>▶ 点击去对暗号</div>
+    </div>
+    <div class="hint">雾栈 · 最后一位买家，已经出现了</div>
   </div>
 
 </div>
@@ -119,22 +196,26 @@ async function sha(s){
   return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
 }
 const PASS = {
-  0: ['ed79fccb8743622d461fd80a7f1870085b53e8830dc92698f6f2e3cf0e33ac00'],  // 序章口令
-  1: ['6b2447c2ce771860a00fafd344820aad102ddcdcc503c02c1f768eb5d37dd883']   // 第1关发货码
+  0: ['ed79fccb8743622d461fd80a7f1870085b53e8830dc92698f6f2e3cf0e33ac00'],  // 序章口令：雾栈来信
+  1: ['6b2447c2ce771860a00fafd344820aad102ddcdcc503c02c1f768eb5d37dd883'],  // 第1关发货码：3242007
+  2: ['dcfc099d43f386978350ffcb8ab6b3e7fc3d7f6904888e44341b383e9a167168'],  // 第2关：066
+  3: ['b655703d7f95d15ee7fec0f5ec80bc20179e8b74f08c2f4c0af59f5b83c75976'],  // 第3关：晚钟
+  4: ['f84b272f8635ce08446a704794cd7b9aa5226a26d8afd1290ab22f4513d039ab']   // 第4关：雾栈
 };
-const T0 = '你收到一封信。<br><br>信封上没有邮票，没有寄件地址，<br>只有一行字：<br><br><b>「致最后一位买家。」</b><br><br>落款是——<br><br><b style="color:#c82828;">陌屿集市</b><br><br>信的末尾写着：<br><span style="color:#555;">「想拆第二页，回复口令。」</span>';
-const T1 = '口令正确。<br><br>第二页是一张……<b>商品页截图</b>。';
-
-const letters = { 0: T0, 1: '' };
+const T = {
+  0: '你收到一封信。<br><br>信封上没有邮票，没有寄件地址，<br>只有一行字：<br><br><b>「致最后一位买家。」</b><br><br>落款是——<br><br><b style="color:#c82828;">陌屿集市</b><br><br>信的末尾写着：<br><span style="color:#555;">「想拆第二页，回复口令。」</span>',
+  1: '口令正确。<br><br>第二页是一张……<b>商品页截图</b>。<br><span style="color:#555;">看懂了？回复发货码。</span>',
+  2: '<b>066。</b><br><br>清单翻页的声音从货架深处传来。<br><br>三件异常货被单独打进木箱，箱子上贴着一张<br><b>怀表维修单</b>的存根。<br><span style="color:#555;">表停在 11:59。它在等什么？</span>',
+  3: '<b>晚钟。</b><br><br>你念出这两个字的瞬间，仓库深处的灯<br>自己亮了一排。<br><br>角落的旧收音机滋啦一声，放出一段电流杂音——<br>是一个人清嗓子的声音。然后是一段合成音：<br><br><b>「我叫林深。造机器的人。<br>我的遗言，只剩最后一句了。」</b>',
+  4: '<b>雾栈。</b><br><br>收音机安静了很久。<br><br>然后，仓库最里面的那扇门开了。<br>门后没有货。只有一张桌子，桌上放着一封<br>写着你名字的信——<br><br><b>「雾散了。回家吧。」</b>'
+};
 
 function type(el, html, done){
-  // 按标签安全地逐字显示
   let i = 0, out = '', tag = false;
-  const plain = html;
   el.innerHTML = '';
   const tick = setInterval(()=>{
-    if (i >= plain.length){ clearInterval(tick); el.classList.remove('cursor'); done&&done(); return; }
-    let ch = plain[i];
+    if (i >= html.length){ clearInterval(tick); el.classList.remove('cursor'); done&&done(); return; }
+    let ch = html[i];
     if (ch === '<') tag = true;
     out += ch;
     if (ch === '>') tag = false;
@@ -142,13 +223,10 @@ function type(el, html, done){
     i++;
   }, 45);
 }
-window.addEventListener('load', ()=>{
-  letters[0] = T0;
-  type(document.getElementById('letter0'), T0);
-});
 
 async function check(n){
   const v = document.getElementById('in'+n).value;
+  if (!v.trim()) return;
   const h = await sha(v);
   let ok = false;
   for (const p of PASS[n]) { if (h === p) ok = true; }
@@ -159,17 +237,18 @@ async function check(n){
   document.getElementById('s'+n).classList.remove('on');
   const nxt = document.getElementById('s'+(n+1));
   nxt.classList.add('on');
-  if (n === 0){
-    type(nxt.querySelector('.letter'), '口令正确。<br><br>第二页是一张……<b>商品页截图</b>。');
-  }
+  type(nxt.querySelector('.letter'), T[n]);
   window.scrollTo(0,0);
 }
 document.addEventListener('keydown', e=>{
   if (e.key === 'Enter'){
-    for (let n=0; n<2; n++){
+    for (let n=0; n<5; n++){
       if (document.getElementById('s'+n).classList.contains('on')) check(n);
     }
   }
+});
+window.addEventListener('load', ()=>{
+  type(document.getElementById('letter0'), T[0]);
 });
 </script>
 </body>
